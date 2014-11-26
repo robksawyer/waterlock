@@ -21,7 +21,7 @@
 	"sub":true,
 	"strict":true,
 	"laxbreak":true,
-  	"laxcomma":true,
-  	"unused": ["mocha"],
+  "laxcomma":true,
+  "unused": ["mocha"],
 	"predef":["User", "ResetToken", "ApiKey", "Use", "Jwt", "sails", "waterlock", "it", "describe", "before"]
 }
