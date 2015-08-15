@@ -1,3 +1,16 @@
+# v0.1.1
+* [FEATURE] Added Bearer Token Authentication
+[#81](https://github.com/waterlock/waterlock/pull/81)
+
+# v0.1.0
+* [FEATURE] Added a jwt flag for loginsuccess to return the token. [#41](https://github.com/waterlock/waterlock/pull/41)
+* [FEATURE] updated dependencies
+
+# v0.0.14
+* [BUG] Fix in `findOrCreateAuth`. [#52](https://github.com/davidrivera/waterlock/pull/52)
+* [BUG] fixed jwt model - data too long for column token in mysql. [#48](https://github.com/davidrivera/waterlock/pull/48)
+* [BUG] Check if token exists. [#49](https://github.com/davidrivera/waterlock/pull/49)
+
 # v0.0.13
 * [BUG] fixed depreciated moment variable positions and readme, [#19](https://github.com/davidrivera/waterlock/pull/19)
 * [BUG] fixed users not being created after initial, [#24](https://github.com/davidrivera/waterlock/pull/24)
@@ -19,7 +32,7 @@
 * [FEATURE] now tracking port on attempt
 * [FEATURE] added in postActions addresses issue [#7](https://github.com/davidrivera/waterlock/issues/7)
 * [REFACTORING] major overhaul of waterlock core
-* [REFACTORING] removed email.jade 
+* [REFACTORING] removed email.jade
 
 # v0.0.9
 * [FEATURE] now supports multiple auth methods at once

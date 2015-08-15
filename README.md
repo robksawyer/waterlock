@@ -1,12 +1,16 @@
 [![Waterlock][waterlock-image]][waterlock-url]
 -----------------------------------------------
 
-| [![Build Status][travis-image]][travis-url] | [![NPM version][npm-version-image]][npm-url] | [![NPM downloads][npm-downloads-image]][npm-url] | [![Dependency Status][dependency-image]][dependency-url] | 
+[![Gitter][gitter-image]][gitter-url]
+
+[![Inline docs][inch-image]][inch-url]
+
+| [![Build Status][travis-image]][travis-url] | [![NPM version][npm-version-image]][npm-url] | [![NPM downloads][npm-downloads-image]][npm-url] | [![Dependency Status][dependency-image]][dependency-url] |
 | ------- | ------- | ------- | ------- |
 | [![Coverage Status][coverage-image]][coverage-url] | [![Code Climate][climate-image]][climate-url] | [![Gittip][gittip-image]][gittip-url] | [![MIT License][license-image]][license-url]
 
 
-Waterlock is an all encompassing user authentication/json web token management tool for [Sails](http://sailsjs.com) `version 0.10`
+Waterlock is an all encompassing user authentication/json web token management tool for [Sails](http://sailsjs.com) `>= 0.10`
 
 # What does it provide
 Waterlock provides predefined routes and models for user authentication and json web token management. Password resets are also handled but we'll cover that below.
@@ -14,10 +18,10 @@ Authentication is handled via methods. The current supported methods are:
 
 | Method | Library |
 | ------------- | ------------- |
-| Local Auth | [waterlock-local-auth](https://github.com/davidrivera/waterlock-local-auth) |
-| Twitter Auth | [waterlock-twitter-auth](https://github.com/davidrivera/waterlock-twitter-auth) |
-| Facebook Auth | [waterlock-facebook-auth](https://github.com/davidrivera/waterlock-facebook-auth) |
-| Google Auth | [waterlock-google-auth](https://github.com/davidrivera/waterlock-google-auth) |
+| Local Auth | [waterlock-local-auth](https://github.com/waterlock/waterlock-local-auth) |
+| Twitter Auth | [waterlock-twitter-auth](https://github.com/waterlock/waterlock-twitter-auth) |
+| Facebook Auth | [waterlock-facebook-auth](https://github.com/waterlock/waterlock-facebook-auth) |
+| Google Auth | [waterlock-google-auth](https://github.com/waterlock/waterlock-google-auth) |
 
 it is a great tool if you're looking to grant user access to your api.
 
@@ -56,11 +60,11 @@ now with your policies applied to your custom controller you're good to go! (giv
 Waterlock wraps around models and controllers so you can override any of the actions and definition that are predefined. After running `waterlock generate all` open up the `User.js` file you'll see this:
 ```js
   attributes: require('waterlock').models.user.attributes({
-    
+
     /* e.g.
     nickname: 'string'
     */
-    
+
   }),
 ```
 you can add any custom attributes you wish to your user model by just dropping them in like normal.
@@ -88,6 +92,9 @@ Waterlock generates a config located at `config/waterlock.json` this file is use
 		* `unit` - [y,M,w,d,h,m,s,ms](http://momentjs.com/docs/#/manipulating/add/)
 		* `length` - length of time
 	* `audience` - the jwt [aud claim](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-23#section-4.1.3) a good choice is the name of your app
+	* `tokenProperty` - customize the name of the property returning the token value
+	* `expiresProperty` - customize the name of the property returning the expires value
+	* `includeUserInJwtResponse` - when JWT is the default response for succesfull log-in you can return the user along with the token by setting this to true - cuts down round tripsg
 	* `subject` - the jwt [sub claim](http://tools.ietf.org/html/draft-ietf-oauth-json-web-token-23#section-4.1.2)
 * `postActions` - lets waterlock know how to handle various login/logout events, you can read more about this in the [docs](http://waterlock.ninja/documentation/)
 
@@ -100,12 +107,12 @@ We would hope to turn this project into a well oiled jwt management tool for use
 Tests are run through the wonderful mocha so just clone the library run `npm install` then `npm test`
 
 ## Feature Requests
-I love to hear all of your feature requests, so if you have any please open an [issue here](https://github.com/davidrivera/waterlock/issues)! I'll be more than happy to work it into the roadmap if feasible.
+I love to hear all of your feature requests, so if you have any please open an [issue here](https://github.com/waterlock/waterlock/issues)! I'll be more than happy to work it into the roadmap if feasible.
 
 ## Contributing
 Feel free to contribute as you please, the more the merrier. Just please write test cases for everything you submit, in short you can follow the steps below. Happy coding! :smile:
 
-1. Fork it ( http://github.com/davidrivera/waterlock/fork )
+1. Fork it ( http://github.com/waterlock/waterlock/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Write test cases!
 4. Commit your changes (`git commit -am 'Add some feature'`)
@@ -122,14 +129,14 @@ MIT (see License)
 [npm-version-image]: http://img.shields.io/npm/v/waterlock.svg?style=flat
 [npm-downloads-image]: http://img.shields.io/npm/dm/waterlock.svg?style=flat
 
-[travis-url]: https://travis-ci.org/davidrivera/waterlock
-[travis-image]: http://img.shields.io/travis/davidrivera/waterlock.svg?style=flat
+[travis-url]: https://travis-ci.org/waterlock/waterlock
+[travis-image]: http://img.shields.io/travis/waterlock/waterlock.svg?style=flat
 
-[dependency-image]: http://img.shields.io/gemnasium/davidrivera/waterlock.svg?style=flat
-[dependency-url]: https://gemnasium.com/davidrivera/waterlock
+[dependency-image]: http://img.shields.io/gemnasium/waterlock/waterlock.svg?style=flat
+[dependency-url]: https://gemnasium.com/waterlock/waterlock
 
-[coverage-image]: http://img.shields.io/coveralls/davidrivera/waterlock/master.svg?style=flat
-[coverage-url]: https://coveralls.io/r/davidrivera/waterlock?branch=master
+[coverage-image]: http://img.shields.io/coveralls/waterlock/waterlock/master.svg?style=flat
+[coverage-url]: https://coveralls.io/r/waterlock/waterlock?branch=master
 
 [gittip-image]: http://img.shields.io/gittip/davidrivera.svg?style=flat
 [gittip-url]: https://www.gittip.com/davidrivera/
@@ -137,5 +144,11 @@ MIT (see License)
 [waterlock-image]: https://lh3.googleusercontent.com/-aThk1tYLSh0/U5fAM6NyB5I/AAAAAAAAH84/FKmmmQ80XWY/w611-h144-no/waterlock-header.png
 [waterlock-url]: http://waterlock.ninja/
 
-[climate-image]: http://img.shields.io/codeclimate/github/davidrivera/waterlock.svg?style=flat
-[climate-url]: https://codeclimate.com/github/davidrivera/waterlock
+[climate-image]: http://img.shields.io/codeclimate/github/waterlock/waterlock.svg?style=flat
+[climate-url]: https://codeclimate.com/github/waterlock/waterlock
+
+[gitter-image]: https://badges.gitter.im/Join%20Chat.svg
+[gitter-url]: https://gitter.im/waterlock/waterlock?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
+[inch-image]: http://inch-ci.org/github/waterlock/waterlock.svg?branch=master
+[inch-url]: http://inch-ci.org/github/waterlock/waterlock
